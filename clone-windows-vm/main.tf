@@ -1,6 +1,6 @@
 # vSphere connection
 provider "vsphere" {
-  vsphere_server = "${var.vsphere["server"]}"
+  vsphere_server = "${var.vsphere["vcenter_server"]}"
   user           = "${var.vsphere["user"]}"
   password       = "${var.vsphere["password"]}"
 

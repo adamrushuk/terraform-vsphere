@@ -3,9 +3,9 @@ variable "vsphere" {
   type = "map"
 
   default = {
-    server   = ""
-    user     = "administrator@vsphere.local"
-    password = "Pa55word!"
+    vcenter_server = ""
+    user           = "administrator@vsphere.local"
+    password       = "Pa55word!"
   }
 }
 

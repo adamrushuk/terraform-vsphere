@@ -1,10 +1,10 @@
 # Assign variables
 # vSphere vars
 vsphere = {
-  # Connection
-  server   = "vcsa.lab.local"
-  user     = "administrator@vsphere.local"
-  password = "Pa55word!"
+  # Connection details
+  vcenter_server = "vcsa.lab.local"
+  user           = "administrator@vsphere.local"
+  password       = "Pa55word!"
 
   # Cluster details (where cloned VMs will be created)
   datacenter_name = "Datacenter"
