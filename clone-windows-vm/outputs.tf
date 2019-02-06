@@ -10,5 +10,5 @@ output "vm_ips" {
 
 output "vm_default_ip_address" {
   description = "Default IP Address of the provisoned VM."
-  value       = "${vsphere_virtual_machine.vm.*.guest_ip_addresses}"
+  value       = "${vsphere_virtual_machine.vm.*.default_ip_address}"
 }
