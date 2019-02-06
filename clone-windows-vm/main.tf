@@ -1,3 +1,4 @@
+# vSphere connection
 provider "vsphere" {
   vsphere_server = "${var.vsphere["server"]}"
   user           = "${var.vsphere["user"]}"
@@ -76,19 +77,21 @@ resource "vsphere_virtual_machine" "vm" {
     }
   }
 
-  provisioner "remote-exec" {
-    inline = [
-      "'$(Get-Date) test text from terraform remote-exec' | Set-Content -Path '~\test.txt'",
-    ]
+  # Remote exec will not work until you configure WinRM to accept insecure connections
+  # Unfortunately vSphere clears these insecure settings during customisation (sysprep)
+  # provisioner "remote-exec" {
+  #   inline = [
+  #     "'$(Get-Date) test text from terraform remote-exec' | Set-Content -Path '~\test.txt'",
+  #   ]
 
-    connection {
-      type     = "winrm"
-      user     = "${var.vm["admin_user"]}"
-      password = "${var.vm["admin_password"]}"
-      insecure = true
-    }
-  }
+  #   connection {
+  #     type     = "winrm"
+  #     user     = "${var.vm["admin_user"]}"
+  #     password = "${var.vm["admin_password"]}"
+  #     insecure = true
+  #   }
+  # }
 
-  # Do not wait for an available IP address on this virtual machine
+  # Uncomment to not wait for an available IP address on the virtual machine
   # wait_for_guest_net_timeout = 0
 }
