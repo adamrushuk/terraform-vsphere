@@ -6,16 +6,16 @@ vsphere = {
   user     = "administrator@vsphere.local"
   password = "Pa55word!"
 
-  # Cluster details
+  # Cluster details (where cloned VMs will be created)
   datacenter_name = "Datacenter"
-  datastore_name  = "vsanDatastore"
   cluster_name    = "VSAN-Cluster"
+  datastore_name  = "vsanDatastore"
   network_name    = "VM Network"
 }
 
 # VM vars
 vm = {
-  count          = "1"
+  count          = "3"
   template_name  = "w2012r2-base"
   admin_user     = "Administrator"
   admin_password = "Pa55word!"
