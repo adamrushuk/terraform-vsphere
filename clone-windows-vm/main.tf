@@ -69,7 +69,7 @@ resource "vsphere_virtual_machine" "vm" {
       }
 
       network_interface {
-        ipv4_address = "${var.vm["subnet_prefix"]}${count.index + 100}"
+        ipv4_address = "${var.vm["subnet_prefix"]}${100 + count.index}"
         ipv4_netmask = 24
       }
 
